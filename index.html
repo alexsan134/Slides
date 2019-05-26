@@ -25,17 +25,39 @@
     <script src="js/reveal.js"></script>
     <script src="js/swal.js"></script>
     <script>
-    swal({
-      title:"Bienvenido 😁", 
-      text:"Está es una presentación dinámica, para mejorar tu experiencia veras el contenido en pantalla completa."
-    }).then(() =>{
-      document.body.requestFullscreen(); 
-   })
+    function orientations(){
+      let x = document.querySelector(".reveal");
+      if(window.innerHeight < window.innerWidth){
+        x.style.display = "block";
+        main();
+      }else{
+        x.style.display = "none";
+        swal({
+          title:"Voltea tu pantalla", 
+          text:"Está presentación solo se mostrará en tu pantalla si esta de manera horizontal.", 
+          icon:"error"
+        })
+      }
+    }
+    orientations();
+    window.onresize = ()=>{
+      orientations();
+    }
+    
+    function main(){
+      swal({
+        title:"Bienvenido 😀", 
+        text:"Está es una presentación dinámica, para mejorar tu experiencia veras el contenido en pantalla completa."
+        })
+        .then(() =>{
+          document.body.requestFullscreen();
+        })
       Reveal.initialize({
         center:true, 
         transition:"zoom", 
         hideAddressBar:true
       });
+    }
     </script>
 </body>
 </html>

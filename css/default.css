@@ -18,7 +18,16 @@
   body {
     background: #111;
     background-color: #111; }
-  
+
+.swal-text{
+  font-family: "Open Sans", sans-serif;
+  color:#888;
+  text-align:justify;
+  padding:0 20px;
+}
+.swal-title{
+  font-family: "Montserrat", Impact, sans-serif;
+}
   .reveal {
     font-family: "Open Sans", sans-serif;
     font-size: 40px;

@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Slides</title>
-  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/rev.css">
   <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="reveal">
@@ -16,7 +17,14 @@
     </div>
     <script src="js/reveal.js"></script>
     <script>
-      Reveal.initialize();
+      Reveal.initialize({
+        controls:false, 
+        slideNumber :false, 
+        overview :true, 
+        center:true, 
+        autoSlide:0, 
+        hideAddressBar:true
+      });
     </script>
 </body>
 </html>

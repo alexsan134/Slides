@@ -25,12 +25,15 @@
     <script src="js/reveal.js"></script>
     <script src="js/swal.js"></script>
     <script>
+    var getOrientation = false;
     function orientations(){
+      let d = false;
       let x = document.querySelector(".reveal");
       if(window.innerHeight < window.innerWidth){
         x.style.display = "block";
-        main();
+        d = false;
       }else{
+        d = true;
         x.style.display = "none";
         swal({
           title:"Voltea tu pantalla", 
@@ -38,25 +41,33 @@
           icon:"error"
         })
       }
-    }
-    orientations();
-    window.onresize = ()=>{
-      orientations();
+      return d;
     }
     
-    function main(){
-      swal({
-        title:"Bienvenido 😀", 
-        text:"Está es una presentación dinámica, para mejorar tu experiencia veras el contenido en pantalla completa."
+    function evalFirst(){
+    if(!orientations()) {
+      if(!getOrientation){
+        swal({
+          title:"Bienvenido 😀", 
+          text:"Está es una presentación dinámica, para mejorar tu experiencia veras el contenido en pantalla completa."
         })
         .then(() =>{
+          getOrientation = true;
           document.body.requestFullscreen();
         })
-      Reveal.initialize({
-        center:true, 
-        transition:"zoom", 
-        hideAddressBar:true
+        Reveal.initialize({
+          center:true, 
+          transition:"zoom", 
+          hideAddressBar:true
       });
+      }else{
+        swal.close();
+      }
+    }
+    } 
+    evalFirst();
+    window.onresize = ()=>{
+      evalFirst();
     }
     </script>
 </body>

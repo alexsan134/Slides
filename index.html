@@ -15,22 +15,22 @@
       <div class="slides">
         <section>
           <h4>Slide1</h4>
-            <button id="goFS">Go fullscreen</button>
+          
         </section>
         <section>
           <h4>Slide2</h4>
         </section>
       </div>
     </div>
-  
-<script>
-  var goFS = document.getElementById("goFS");
-  goFS.addEventListener("click", function() {
-      document.body.requestFullscreen();
-  }, false);
-</script>
     <script src="js/reveal.js"></script>
+    <script src="js/swal.js"></script>
     <script>
+    swal({
+      title:"Bienvenido 😁", 
+      text:"Está es una presentación dinámica, para mejorar tu experiencia veras el contenido en pantalla completa."
+    }).then(() =>{
+      document.body.requestFullscreen(); 
+   })
       Reveal.initialize({
         center:true, 
         transition:"zoom", 
